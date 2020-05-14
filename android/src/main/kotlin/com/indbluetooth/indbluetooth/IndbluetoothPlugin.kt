@@ -231,10 +231,10 @@ class IndbluetoothPlugin: MethodCallHandler {
     when (status) {
       BleDevice.STATE_CONNECTED  //已连接
       -> {
-        heartrateSink?.success(DeviceStatus.Connected.type)
+        deviceStatusSink?.success(DeviceStatus.Connected.type)
       }
       else -> {
-        heartrateSink?.success(DeviceStatus.Disconnected.type)
+        deviceStatusSink?.success(DeviceStatus.Disconnected.type)
       }
     }
   }
