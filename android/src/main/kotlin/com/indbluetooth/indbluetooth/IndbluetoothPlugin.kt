@@ -36,6 +36,7 @@ class IndbluetoothPlugin: MethodCallHandler {
 
   val deviceListChannelName = "deviceListChannelName"
   val heartrateChannelName = "heartrateChannelName"
+  val deviceStatusChannelName = "deviceStatusChannelName"
 
   val permissionArray = arrayOf("android.permission.BLUETOOTH", "android.permission.BLUETOOTH_ADMIN", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION")
 
@@ -48,6 +49,8 @@ class IndbluetoothPlugin: MethodCallHandler {
   var deviceListChannel: EventChannel? = null
   var heartrateSink: EventChannel.EventSink? = null
   var heartrateChannel: EventChannel? = null
+  var deviceStatusSink: EventChannel.EventSink? = null
+  var deviceStatusChannel: EventChannel? = null
 
   companion object {
     val TAG = "IndbluetoothPlugin"
@@ -84,6 +87,18 @@ class IndbluetoothPlugin: MethodCallHandler {
         heartrateSink = null
       }
     })
+
+    deviceStatusChannel = EventChannel(registrar.messenger(), deviceStatusChannelName)
+    deviceStatusChannel?.setStreamHandler(object: EventChannel.StreamHandler {
+      override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
+        deviceStatusSink = events
+      }
+
+      override fun onCancel(arguments: Any?) {
+        deviceStatusSink = null
+      }
+    })
+
 
     registrar.addActivityResultListener(object: PluginRegistry.ActivityResultListener {
       override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
@@ -208,35 +223,20 @@ class IndbluetoothPlugin: MethodCallHandler {
     }
   }
 
+  enum class DeviceStatus(var type: Int) {
+    Connected(type = 1), Disconnected(type = 0)
+  }
+
   fun updateConnectStatus(status: Int) {
-//    var connectSate = R.string.un_stpes_walk
     when (status) {
-      BleDevice.STATE_DISCONNECTED  //断开连接
-      -> {
-//        initBeforeConnectUI()
-      }
-      BleDevice.STATE_CONNECTING  //正在连接
-      -> {
-//        card_state.setContentColor(R.color.btn_red)
-//        connectSate = R.string.device_connecting
-      }
       BleDevice.STATE_CONNECTED  //已连接
       -> {
-//        card_state.setContentColor(R.color.btn_green)
-//        connectSate = R.string.stpes_walk
+        heartrateSink?.success(DeviceStatus.Connected.type)
       }
-      BleDevice.STATE_SERVICES_DISCOVERED  //发现服务
-      -> {
-//        card_state.setContentColor(R.color.btn_green)
-//        connectSate = R.string.stpes_walk
-      }
-      BleDevice.STATE_SERVICES_OPENCHANNELSUCCESS
-      -> {
-//        card_state.setContentColor(R.color.btn_green)
-//        connectSate = R.string.stpes_walk
+      else -> {
+        heartrateSink?.success(DeviceStatus.Disconnected.type)
       }
     }
-//    card_state.setContent(getString(connectSate))
   }
 
   /**
