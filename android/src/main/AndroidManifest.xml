@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.indbluetooth.indbluetooth">
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application>
+        <!-- 注册SDK蓝牙服务 -->
+        <service
+            android:name="com.onecoder.devicelib.base.control.manage.BluetoothLeService"
+            android:enabled="true"/>
+    </application>
+
+</manifest>
