@@ -16,7 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   
-  String scan = '';
   List<dynamic> devices = [];
   static const EventChannel deviceListChannel = EventChannel(Indbluetooth.deviceListChannelName);
   static const EventChannel heartrateChannel = EventChannel(Indbluetooth.heartrateChannelName);
@@ -72,19 +71,15 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         devices.clear();
       });
-      scan = await Indbluetooth.startScan;
+      await Indbluetooth.startScan;
     } on PlatformException {
     }
     if (!mounted) return;
-
-    setState(() {
-      scan = scan;
-    });
   }
 
   Future<void> stopScan() async {
     try {
-      Indbluetooth.stopScan;
+      await Indbluetooth.stopScan;
     } on PlatformException {
     }
     if (!mounted) return;
@@ -94,7 +89,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> startRead({String deviceAddress}) async {
     try {
-      Indbluetooth.startRead(deviceAddress);
+      await Indbluetooth.startRead(deviceAddress);
     } on PlatformException {
     }
     if (!mounted) return;
@@ -103,7 +98,7 @@ class _MyAppState extends State<MyApp> {
   }
   Future<void> stopRead() async {
     try {
-      Indbluetooth.stopRead;
+      await Indbluetooth.stopRead;
     } on PlatformException {
     }
     if (!mounted) return;
