@@ -324,21 +324,25 @@ NSMutableArray *bluetoothBeans;
  ********************************************************************************/
 - (void)bleConnectStatus:(DeviceBleStatus)status andDevice:(id)bleDevice {
     FBKApiArmBand *armBandApi = (FBKApiArmBand *)bleDevice;
-    FBKApiArmBand *listApi = myBleDevice.bleDevice;
-    if (armBandApi == listApi) {
-        myBleDevice.connectStatus = status;
-        if (status == DeviceBleClosed) {
-            myBleDevice.isAvailable = NO;
-            if (deviceStatusSink) {
-                deviceStatusSink([NSNumber numberWithInt: 0]);
+        FBKApiArmBand *listApi = myBleDevice.bleDevice;
+        if (armBandApi == listApi) {
+            myBleDevice.connectStatus = status;
+            if (status == DeviceBleClosed) {
+                myBleDevice.isAvailable = NO;
+            } else if (status == DeviceBleIsOpen) {
+                myBleDevice.isAvailable = YES;
+                if (myBleDevice.deviceId.length > 0) {
+                    [listApi startConnectBleApi:myBleDevice.deviceId andIdType:DeviceIdUUID];
+                }
             }
-        } else if (status == DeviceBleIsOpen) {
-            myBleDevice.isAvailable = YES;
-            if (deviceStatusSink) {
-                deviceStatusSink([NSNumber numberWithInt: 1]);
-            }
-            if (myBleDevice.deviceId.length > 0) {
-                [listApi startConnectBleApi:myBleDevice.deviceId andIdType:DeviceIdUUID];
+            if (status == DeviceBleDisconneced) {
+                if (deviceStatusSink) {
+                    deviceStatusSink([NSNumber numberWithInt: 0]);
+                }
+            } else {
+                if (deviceStatusSink) {
+                    deviceStatusSink([NSNumber numberWithInt: 1]);
+                }
             }
         }
     }
