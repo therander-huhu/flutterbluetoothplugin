@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="21e13cd3-6a4f-4118-a154-3382cd36784c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/indbluetooth/indbluetooth/IndbluetoothPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/indbluetooth/indbluetooth/IndbluetoothPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/indbluetooth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/indbluetooth.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/ios/Classes/IndbluetoothPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/ios/Classes/IndbluetoothPlugin.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indbluetooth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/indbluetooth.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/IndbluetoothPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/IndbluetoothPlugin.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

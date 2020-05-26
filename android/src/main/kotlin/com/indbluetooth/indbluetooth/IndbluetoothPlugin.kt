@@ -229,7 +229,7 @@ class IndbluetoothPlugin: MethodCallHandler {
 
   fun updateConnectStatus(status: Int) {
     when (status) {
-      BleDevice.STATE_DISCONNECTED  //已连接
+      BleDevice.STATE_DISCONNECTED  //断开连接
       -> {
         deviceStatusSink?.success(DeviceStatus.Disconnected.type)
       }

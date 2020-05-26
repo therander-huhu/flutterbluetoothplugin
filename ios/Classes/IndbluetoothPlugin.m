@@ -285,6 +285,7 @@ NSMutableArray *bluetoothBeans;
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
   } else if ([START_SCAN isEqualToString:call.method]) {
       if (bluetoothOn) {
+          currentDeviceCount = 0;
           [m_scanBlue startScanBleApi:nil isRealTimeDevice:NO withRssi:70];
       }
       result(START_SCAN);
