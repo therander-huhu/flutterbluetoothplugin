@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - indbluetooth (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - indbluetooth (from `.symlinks/plugins/indbluetooth/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  indbluetooth:
+    :path: ".symlinks/plugins/indbluetooth/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  indbluetooth: 547553c7661cfd59d757c3bb124bfbeef1d31a92
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.9.1
