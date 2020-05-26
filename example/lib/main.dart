@@ -32,8 +32,7 @@ class _MyAppState extends State<MyApp> {
         setState(() {
           devices = devices;
         });
-      }
-      //streamController.sink.add(data);
+      }//streamController.sink.add(data);
     });
     heartrateChannel.receiveBroadcastStream().listen((data) {
       print("myheartRate: $data");//streamController.sink.add(data);
@@ -88,6 +87,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> startRead({String deviceAddress}) async {
+    print('start read');
     try {
       await Indbluetooth.startRead(deviceAddress);
     } on PlatformException {
@@ -157,8 +157,7 @@ class _MyAppState extends State<MyApp> {
                       startRead(deviceAddress:devices[index]['address']);
                     },
                     child: Container(
-                      height: 40,
-                      child: Row(
+                      child: Column(
                         children: <Widget>[
                           Text(devices[index]['name']),
                           Text(devices[index]['address']),
