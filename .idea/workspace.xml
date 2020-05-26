@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21e13cd3-6a4f-4118-a154-3382cd36784c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/indbluetooth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/indbluetooth/indbluetooth.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indbluetooth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/indbluetooth.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

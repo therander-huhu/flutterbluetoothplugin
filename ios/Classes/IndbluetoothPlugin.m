@@ -323,7 +323,7 @@ NSMutableArray *bluetoothBeans;
  * 返回数据：
  ********************************************************************************/
 - (void)bleConnectStatus:(DeviceBleStatus)status andDevice:(id)bleDevice {
-    FBKApiArmBand *armBandApi = (FBKApiArmBand *)bleDevice;
+        FBKApiArmBand *armBandApi = (FBKApiArmBand *)bleDevice;
         FBKApiArmBand *listApi = myBleDevice.bleDevice;
         if (armBandApi == listApi) {
             myBleDevice.connectStatus = status;
@@ -345,7 +345,6 @@ NSMutableArray *bluetoothBeans;
                 }
             }
         }
-    }
 }
 
 /********************************************************************************
